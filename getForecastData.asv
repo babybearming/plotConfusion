@@ -1,0 +1,32 @@
+clc;clear;
+
+% file input
+filePath='./results/';
+fileNameEnd='_Forecast_1-10day.csv';
+
+startDate='01-Dec-2016'; 
+endDate='15-Jan-2017';
+forecastDateNums=10;
+outFileData=cell(forecastDateNums,1);%十天预报结果
+
+trueStartDate=datestr(datenum(startDate)-forecastDateNums);
+trueEndDate=datestr(datenum(endDate)-1);
+
+allDates=datenum(trueStartDate):datenum(trueEndDate);
+allDateStr=datestr(allDates);
+datesNums=length(allDateStr(:,1));
+
+for i=1:datesNums
+    fileName=[filePath allDateStr(i,:) fileNameEnd];
+    M=importdata(fileName);
+    for j=1:forecastDateNums
+        outFileData{j}(i,:)=M(j+1,:);
+    end
+end
+
+for i=1:forecastDateNums
+    outFile{i}(1:datesNums,:)=outFileData{i}( 
+end
+
+
+
