@@ -35,12 +35,16 @@ save forecastData.mat forecastData
 % 提取观测数据
 M=importdata('OBS-20161201-20170115.csv');
 obsData=M(2:end,2:end);
+save obsData.mat obsData
 
-c=confusionmat(obsData(:,8),forecastData{1}(:,8));
-
-obsdata54428=obsData(:,8);
-obs=obsdata54428+1;
-forecastdata54428=forecastData{1}(:,8);
-fore=forecastdata54428+1;
-plotconfusion(ind2vec(obs'),ind2vec(fore'));
+% c=confusionmat(obsData(:,8),forecastData{1}(:,8));
+% 
+% obsdata54428=obsData(:,8);
+% obs=obsdata54428+1;
+% forecastdata54517=forecastData{1}(:,8);
+% fore=forecastdata54517+1;
+% 
+% figure
+% subplot(2,5,1)
+% plotconfusion(ind2vec(obs'),ind2vec(fore'));
 
